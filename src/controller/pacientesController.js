@@ -1,4 +1,4 @@
-const alunas = require("../model/pacientes.json")
+const pacientes = require("../model/pacientes.json")
 const fs = require('fs');
 
 exports.get = (req, res) => {
@@ -13,18 +13,18 @@ exports.getPacientes = (req, res) => {
   if (!paciente) Paciente
     res.send("paciente")
   
-  const pacientesIdade = paciente.idade
-  const pacientesIdade = pacientesIdade.filter(pacientes => pacientes.idade == "true")
-  const pacientesIdade = pacientesIdade.map(paciente => pacientes.idade)
+  let pacientesIdade = paciente.idade
+  pacientesIdade = pacientesIdade.filter(pacientes => pacientes.idade == "true")
+  pacientesIdade = pacientesIdade.map(paciente => pacientes.idade)
   res.send(idade)
 }
 
 exports.getTipoSanguineo = (req, res) => {
-  const TipoSanguineo = tipo.sanguineo(paciente => {
+  let TipoSanguineo = tipo.sanguineo(paciente => {
     console.log(paciente)
     return paciente.TipoSanguineo == "true"
   })
-  const TipoSanguineo = tipoSanguineo.map(paciente => paciente.tipo)
+  TipoSanguineo = tipoSanguineo.map(paciente => paciente.tipo)
 
   res.status(200).send(pacientesTipo)
 }
@@ -40,7 +40,7 @@ exports.getCpf = (req, res) => {
 
 exports.post = (req, res) => { 
   const { paciente, idade, tipoSanguineo, id, cpf } = req.body;
-  alunas.push({ paciente, idade, tipoSanguineo, id, cpf });
+  paciente.push({ paciente, idade, tipoSanguineo, id, cpf });
 
   fs.writeFile("./src/model/pacientes.json", JSON.stringify(alunas), 'utf8', function (err) {
     if (err) {

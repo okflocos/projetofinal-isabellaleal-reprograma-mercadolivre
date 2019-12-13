@@ -1,11 +1,12 @@
-const app = require("./src/app")
+const app = require("./app")
+const path = require("path")
 const port = 3000
 
 app.listen(port, function() {
   console.log(`app está rodando na porta ${port}`)
 })  
 
-app.use(express.static('doc'))_  
+// app.use(express.static('doc'))  
 app.get('/api-doc',(req,res) => {
-    res.sendFile(__dirname + '/doc/index.html');
+    res.sendFile(path.join(__dirname + '/doc/index.html'));
 })
