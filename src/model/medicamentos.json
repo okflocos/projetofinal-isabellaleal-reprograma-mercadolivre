@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "doença": "hipertensao",
+      "doença": "hipertensão",
       "medicamento": "losartana"
     },
     {
@@ -16,7 +16,7 @@
     },
     {
       "id": 4,
-      "doença": "depressao",
+      "doença": "depressão",
       "medicamento": "sertralina"
     }
   ]

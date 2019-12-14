@@ -10,3 +10,4 @@ app.listen(port, function() {
 app.get('/api-doc',(req,res) => {
     res.sendFile(path.join(__dirname + '/doc/index.html'));
 })
+

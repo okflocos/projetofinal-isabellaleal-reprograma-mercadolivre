@@ -11,8 +11,8 @@ exports.getPacientes = (req, res) => {
   const id = req.params.id
   const pacientes = pacientes.find(pacientes => paciente.id == id)
   if (!paciente) Paciente
-    res.send("paciente")
-  
+  res.send("paciente")
+
   let pacientesIdade = paciente.idade
   pacientesIdade = pacientesIdade.filter(pacientes => pacientes.idade == "true")
   pacientesIdade = pacientesIdade.map(paciente => pacientes.idade)
@@ -38,7 +38,7 @@ exports.getCpf = (req, res) => {
   res.status(200).send({ cpf })
 }
 
-exports.post = (req, res) => { 
+exports.post = (req, res) => {
   const { paciente, idade, tipoSanguineo, id, cpf } = req.body;
   paciente.push({ paciente, idade, tipoSanguineo, id, cpf });
 
@@ -47,21 +47,17 @@ exports.post = (req, res) => {
       return res.status(500).send({ message: err });
     }
     console.log("Paciente encontrado(a)!");
-  }); 
+  });
 
-  return res.status(201).send(pacientes); 
-}
-
-{
-  
+  return res.status(201).send(pacientes);
 }
 
 exports.deleteId = (req, res) => {
-  const { id }
-    id.delete(req.params.id);
-    res.status(200).send({
-      message: 'Id removida com sucesso!'
-    });
-   res.status(500).send({message: 'Falha ao remover a menção.'});
-  
+  const { paciente } = req.body;
+  console.log('Valor do paciente: ' + paciente)
+  //paciente.delete(req.params.id);
+  res.status(200).send({
+    message: 'Id removida com sucesso!'
+  });
+  res.status(500).send({ message: 'Falha ao remover a menção.' });
 };

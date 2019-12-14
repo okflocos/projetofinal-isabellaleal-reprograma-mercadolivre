@@ -28,6 +28,7 @@ const controller = require("../controller/pacientesController")
 //  *     }
 //  */
 router.get("/", controller.get)
-router.delete("/id:", controller.delete)
+//router.delete("/pacientes", controller.deleteId)
+router.delete('/', controller.deleteId);
 
 module.exports = router
