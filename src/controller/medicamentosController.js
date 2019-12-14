@@ -19,6 +19,13 @@ exports.post = (req, res) => {
   .catch(function(err){
     res.status(500).send(err)
   })
+} 
+
+exports.put = (req, res) => {
+  console.log('estoque atualizado')
+  const medicamentos = Medicamentos(req.body)
+  console.log(medicamentos) 
+  medicamentos.save()
 }
 
 

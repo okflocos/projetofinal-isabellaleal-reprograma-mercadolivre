@@ -5,6 +5,7 @@ const medicamentosSchema = new Schema(
   {
     paciente: { type: String },
     doença: { type: String, required: true },
+    medicamento: {type: String}
   },
   {
     versionKey: false

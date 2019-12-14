@@ -49,5 +49,19 @@ exports.post = (req, res) => {
     console.log("Paciente encontrado(a)!");
   }); 
 
-  return res.status(201).send(pacientes);
+  return res.status(201).send(pacientes); 
 }
+
+{
+  
+}
+
+exports.deleteId = (req, res) => {
+  const { id }
+    id.delete(req.params.id);
+    res.status(200).send({
+      message: 'Id removida com sucesso!'
+    });
+   res.status(500).send({message: 'Falha ao remover a menção.'});
+  
+};

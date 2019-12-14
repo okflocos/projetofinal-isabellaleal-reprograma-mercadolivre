@@ -4,7 +4,7 @@ const bodyParser = require("body-parser")
 
 const app = express()
 
-mongoose.connect('mongodb+srv://admin:123123!@projeto-final-qdxrv.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://admin:123123!@projeto-final-qdxrv.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true});
 
 let db = mongoose.connection;
 db.on("error", console.log.bind(console, "connection error:"))
@@ -30,7 +30,7 @@ app.use(function (req, res, next) {
 
 app.use("/", index)
 
-// app.use("/pacientes", pacientes)
+app.use("/pacientes", pacientes)
 app.use("/medicamentos", medicamentos)
 app.use(express.static("public"));
 app.use(bodyParser.json());

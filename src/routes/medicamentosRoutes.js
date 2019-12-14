@@ -30,6 +30,7 @@ const controller = require("../controller/medicamentosController")
 //  */
 // router.get("/", controller.get)
 // router.get("/:id", controller.getById)
-router.post("/", controller.post)
+router.post("/", controller.post)   
+router.put("/", controller.put)
 
 module.exports = router
