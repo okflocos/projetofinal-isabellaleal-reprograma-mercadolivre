@@ -35,18 +35,21 @@ exports.getById = async (req, res) => {
   }
 };
 
-exports.put = (req, res) => {
-  
-  const medicamentos = Medicamentos(req.body);
-  console.log(medicamentos);
-  medicamentos
-    .save()
-    .then(function() {
-      res.status(200).send(medicamentos);
-    })
-    .catch(function(err) {
-      res.status(500).send(err);
+exports.put = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    await Medicamentos.updateOne({ _id:id },req.body,{ multi: true });
+
+    const medicamentos = await Medicamentos.findById(id);
+
+    res.status(200).send(medicamentos);
+
+  } catch (error) {
+    res.status(500).send({
+      message: error.message
     });
+  }
 };
 
 exports.delete = (req, res) => {

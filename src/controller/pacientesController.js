@@ -44,9 +44,14 @@ exports.get = async (req, res) => {
 
 exports.put = async (req, res) => {
   try {
-    const pacientes = new Pacientes(req.body);
-    await pacientes.save();
+    const id = req.params.id;
+
+    await Pacientes.update({ _id:id },req.body,{ multi: true });
+
+    const pacientes = await Pacientes.findById(id);
+
     res.status(200).send(pacientes);
+
   } catch (error) {
     res.status(500).send({
       message: error.message
