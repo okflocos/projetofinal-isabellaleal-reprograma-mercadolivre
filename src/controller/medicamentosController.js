@@ -1,7 +1,7 @@
 const Medicamentos = require("../model/medicamentos");
 
 exports.post = (req, res) => {
-  console.log("entrou aqui");
+  
   const medicamentos = new Medicamentos(req.body);
   medicamentos
     .save()

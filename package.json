@@ -5,6 +5,7 @@
   "main": "serve.js",
   "scripts": {
     "start": "node serve.js",
+    "dev": "nodemon serve.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +21,9 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "mongoose": "^5.8.0",
-    "nodemon": "^2.0.1"
+    "mongoose": "^5.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }

@@ -6,7 +6,7 @@ app.use(express.static('public'));
 router.get("/", function(req, res) {
   res.status(200).send({
     title: "Projeto Final Isabella Leal N1 Meli Reprograma",
-    version: "0.0.1"
+    version: "0.0.2"
   })
 })
 
