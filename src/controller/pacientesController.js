@@ -1,63 +1,69 @@
-const pacientes = require("../model/pacientes.json")
-const fs = require('fs');
+const Pacientes = require("../model/pacientes");
 
-exports.get = (req, res) => {
-  console.log(req.url)
-  res.status(200).send(pacientes)
+exports.post = async (req, res) => {
+  try {
+    const pacientes = new Pacientes(req.body);
+    await pacientes.save();
+    res.status(200).send(pacientes);
+  } catch (error) {
+    res.status(500).send({
+      message: error.message
+    });
+  }
+};
 
-}
+exports.getById = async (req, res) => {
+  try {
+    const id = req.params.id;
 
-exports.getPacientes = (req, res) => {
-  const id = req.params.id
-  const pacientes = pacientes.find(pacientes => paciente.id == id)
-  if (!paciente) Paciente
-  res.send("paciente")
+    const paciente = await Pacientes.findById(id);
 
-  let pacientesIdade = paciente.idade
-  pacientesIdade = pacientesIdade.filter(pacientes => pacientes.idade == "true")
-  pacientesIdade = pacientesIdade.map(paciente => pacientes.idade)
-  res.send(idade)
-}
+    res.status(200).send(paciente);
+  } catch (error) {
+    res.status(500).send({
+      message: error.message
+    });
+  }
+};
 
-exports.getTipoSanguineo = (req, res) => {
-  let TipoSanguineo = tipo.sanguineo(paciente => {
-    console.log(paciente)
-    return paciente.TipoSanguineo == "true"
-  })
-  TipoSanguineo = tipoSanguineo.map(paciente => paciente.tipo)
+exports.get = async (req, res) => {
+  try {
+    const pacientes = await Pacientes.find({});
 
-  res.status(200).send(pacientesTipo)
-}
+    console.log('pacientes',pacientes)
 
-exports.getCpf = (req, res) => {
-  const id = req.params.id
-  const paciente = pacientes.find(item => item.id == id)
-  const pacienteCpf = paciente.Cpf
-  const arrPaciente = pacienteCpf.split("/")
-  const cpf = arrPaciente[0]
-  res.status(200).send({ cpf })
-}
+    
 
-exports.post = (req, res) => {
-  const { paciente, idade, tipoSanguineo, id, cpf } = req.body;
-  paciente.push({ paciente, idade, tipoSanguineo, id, cpf });
+    res.status(200).send(pacientes);
+  } catch (error) {
+    res.status(500).send({
+      message: error.message
+    });
+  }
+};
 
-  fs.writeFile("./src/model/pacientes.json", JSON.stringify(alunas), 'utf8', function (err) {
-    if (err) {
-      return res.status(500).send({ message: err });
-    }
-    console.log("Paciente encontrado(a)!");
+exports.put = async (req, res) => {
+  try {
+    const pacientes = new Pacientes(req.body);
+    await pacientes.save();
+    res.status(200).send(pacientes);
+  } catch (error) {
+    res.status(500).send({
+      message: error.message
+    });
+  }
+};
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  
+  Pacientes.findById(id , function(err, paciente) {
+    paciente.remove(function(err) {
+      if (!err) {
+        res.status(200).send({ message: "Paciente removido com sucesso ... " });
+      } else {
+        res.status(500);
+      }
+    });
   });
-
-  return res.status(201).send(pacientes);
-}
-
-exports.deleteId = (req, res) => {
-  const { paciente } = req.body;
-  console.log('Valor do paciente: ' + paciente)
-  //paciente.delete(req.params.id);
-  res.status(200).send({
-    message: 'Id removida com sucesso!'
-  });
-  res.status(500).send({ message: 'Falha ao remover a menção.' });
 };

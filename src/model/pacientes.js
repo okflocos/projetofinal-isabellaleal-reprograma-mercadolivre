@@ -5,7 +5,7 @@ const pacientesSchema = new Schema(
   {
     paciente: { type: String },
     idade: { type: String, required: true },
-    tiposanguineo: { type: String,},    
+    tipo_sanguineo: { type: String,},    
     cpf: { type: String}
   },
   {
@@ -13,9 +13,9 @@ const pacientesSchema = new Schema(
   }
 );
 
-exports.deleteMention = async id => {
-    await Mentions.findOneAndRemove(id);
-  };
+// exports.deleteMention = async id => {
+//     await Mentions.findOneAndRemove(id);
+//   };
   
 const Pacientes = mongoose.model("Pacientes", pacientesSchema);
 
