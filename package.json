@@ -2,7 +2,7 @@
   "name": "projetofinal-isabellaleal-reprograma-mercadolivre",
   "version": "1.0.0",
   "description": "Projeto Final do bootcamp de Back End da Reprograma no Mercado Livre em 2019.",
-  "main": "index.js",
+  "main": "serve.js",
   "scripts": {
     "start": "node serve.js",
     "test": "echo \"Error: no test specified\" && exit 1"
