@@ -1,6 +1,8 @@
 const express = require("express")
 const router = express.Router()
 
+app.use(express.static('public'));
+
 router.get("/", function(req, res) {
   res.status(200).send({
     title: "Projeto Final Isabella Leal N1 Meli Reprograma",

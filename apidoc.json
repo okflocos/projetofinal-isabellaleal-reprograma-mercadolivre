@@ -1,7 +1,7 @@
 {
-    "name": "example",
+    "name": "Projeto final {Reprograma} N1 Mercado Livre | Node Pharmacy",
     "version": "0.1.0",
-    "description": "apiDoc basic example",
+    "description": "Está API e uma farmácia, aonde pode consultar dados importantes dos pacientes e saber qual e a sua medicação.",
     "apidoc": {
       "title": "Custom apiDoc browser title",
       "url" : "https://github.com/isabellalealx/projetofinal-isabellaleal-reprograma-mercadolivre.git"
